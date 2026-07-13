@@ -1,0 +1,266 @@
+{
+  "application": {
+    "name": "Workbook PjBL DKV",
+    "version": "1.0.0",
+    "school": "SMK Negeri 6 Purworejo",
+    "major": "Produksi dan Siaran Program Televisi"
+  },
+
+  "semester1": [
+    {
+      "id": 1,
+      "title": "Aku Seorang Desainer",
+      "meeting": 1,
+      "duration": "4 JP",
+      "status": "active"
+    },
+    {
+      "id": 2,
+      "title": "Mengenal Unsur Desain",
+      "meeting": 2,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 3,
+      "title": "Prinsip Dasar Desain",
+      "meeting": 3,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 4,
+      "title": "Membuat Moodboard",
+      "meeting": 4,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 5,
+      "title": "Personal Branding",
+      "meeting": 5,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 6,
+      "title": "Logo Pertamaku",
+      "meeting": 6,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 7,
+      "title": "Typography",
+      "meeting": 7,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 8,
+      "title": "Warna dalam Desain",
+      "meeting": 8,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 9,
+      "title": "Poster Digital",
+      "meeting": 9,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 10,
+      "title": "Feed Instagram",
+      "meeting": 10,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 11,
+      "title": "Story Instagram",
+      "meeting": 11,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 12,
+      "title": "Mockup Produk",
+      "meeting": 12,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 13,
+      "title": "Desain Kaos",
+      "meeting": 13,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 14,
+      "title": "Desain Mug",
+      "meeting": 14,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 15,
+      "title": "Desain Pin",
+      "meeting": 15,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 16,
+      "title": "Produksi Merchandise",
+      "meeting": 16,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 17,
+      "title": "Katalog Produk",
+      "meeting": 17,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 18,
+      "title": "Pameran Semester 1",
+      "meeting": 18,
+      "duration": "4 JP",
+      "status": "locked"
+    }
+  ],
+
+  "semester2": [
+    {
+      "id": 19,
+      "title": "Creative Merchandise Business",
+      "meeting": 19,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 20,
+      "title": "Riset Pasar",
+      "meeting": 20,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 21,
+      "title": "Branding Event",
+      "meeting": 21,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 22,
+      "title": "Merchandise Sekolah",
+      "meeting": 22,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 23,
+      "title": "Kaos Event",
+      "meeting": 23,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 24,
+      "title": "Mug Guru",
+      "meeting": 24,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 25,
+      "title": "Pin Organisasi",
+      "meeting": 25,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 26,
+      "title": "Proposal Produk",
+      "meeting": 26,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 27,
+      "title": "Produksi Massal",
+      "meeting": 27,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 28,
+      "title": "Packaging",
+      "meeting": 28,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 29,
+      "title": "Foto Produk",
+      "meeting": 29,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 30,
+      "title": "Video Promosi",
+      "meeting": 30,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 31,
+      "title": "Marketplace",
+      "meeting": 31,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 32,
+      "title": "Bazar Sekolah",
+      "meeting": 32,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 33,
+      "title": "Evaluasi Penjualan",
+      "meeting": 33,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 34,
+      "title": "Portofolio",
+      "meeting": 34,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 35,
+      "title": "Persiapan Expo",
+      "meeting": 35,
+      "duration": "4 JP",
+      "status": "locked"
+    },
+    {
+      "id": 36,
+      "title": "Expo DKV",
+      "meeting": 36,
+      "duration": "4 JP",
+      "status": "locked"
+    }
+  ]
+}
