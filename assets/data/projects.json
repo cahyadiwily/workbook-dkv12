@@ -1,265 +1,175 @@
 {
   "application": {
-    "name": "Workbook PjBL DKV",
+    "name": "AI Branding Studio",
     "version": "1.0.0",
     "school": "SMK Negeri 6 Purworejo",
-    "major": "Produksi dan Siaran Program Televisi"
+    "major": "Produksi dan Siaran Program Televisi",
+    "class": "XII",
+    "semester": "1",
+    "tagline": "Dari Foto Produk Menjadi Konten Profesional"
   },
 
   "semester1": [
     {
       "id": 1,
-      "title": "Aku Seorang Desainer",
+      "title": "Mengenal Branding dan Social Media Marketing",
       "meeting": 1,
       "duration": "4 JP",
+      "phase": "Brand Discovery",
+      "output": "Worksheet Analisis Brand",
       "status": "active"
     },
     {
       "id": 2,
-      "title": "Mengenal Unsur Desain",
+      "title": "Menentukan Klien UMKM",
       "meeting": 2,
       "duration": "4 JP",
+      "phase": "Brand Discovery",
+      "output": "Client Brief",
       "status": "locked"
     },
     {
       "id": 3,
-      "title": "Prinsip Dasar Desain",
+      "title": "Menentukan Target Audience",
       "meeting": 3,
       "duration": "4 JP",
+      "phase": "Brand Discovery",
+      "output": "Customer Persona",
       "status": "locked"
     },
     {
       "id": 4,
-      "title": "Membuat Moodboard",
+      "title": "Audit Kompetitor",
       "meeting": 4,
       "duration": "4 JP",
+      "phase": "Brand Discovery",
+      "output": "Competitor Analysis",
       "status": "locked"
     },
     {
       "id": 5,
-      "title": "Personal Branding",
+      "title": "Fotografi Produk dengan Smartphone",
       "meeting": 5,
       "duration": "4 JP",
+      "phase": "Content Production",
+      "output": "10 Foto Produk",
       "status": "locked"
     },
     {
       "id": 6,
-      "title": "Logo Pertamaku",
+      "title": "Prompt Engineering untuk Desainer",
       "meeting": 6,
       "duration": "4 JP",
+      "phase": "Content Production",
+      "output": "Prompt Library",
       "status": "locked"
     },
     {
       "id": 7,
-      "title": "Typography",
+      "title": "Membangun Identitas Visual Brand",
       "meeting": 7,
       "duration": "4 JP",
+      "phase": "Content Production",
+      "output": "Brand Kit",
       "status": "locked"
     },
     {
       "id": 8,
-      "title": "Warna dalam Desain",
+      "title": "Membuat Template Konten Instagram",
       "meeting": 8,
       "duration": "4 JP",
+      "phase": "Content Production",
+      "output": "Template Feed",
       "status": "locked"
     },
     {
       "id": 9,
-      "title": "Poster Digital",
+      "title": "Membuat Konten Promo",
       "meeting": 9,
       "duration": "4 JP",
+      "phase": "Social Media Content",
+      "output": "3 Feed Promo",
       "status": "locked"
     },
     {
       "id": 10,
-      "title": "Feed Instagram",
+      "title": "Membuat Konten Edukasi",
       "meeting": 10,
       "duration": "4 JP",
+      "phase": "Social Media Content",
+      "output": "3 Feed Edukasi",
       "status": "locked"
     },
     {
       "id": 11,
-      "title": "Story Instagram",
+      "title": "Membuat Konten Storytelling",
       "meeting": 11,
       "duration": "4 JP",
+      "phase": "Social Media Content",
+      "output": "3 Feed Storytelling",
       "status": "locked"
     },
     {
       "id": 12,
-      "title": "Mockup Produk",
+      "title": "Membuat Konten Testimoni",
       "meeting": 12,
       "duration": "4 JP",
+      "phase": "Social Media Content",
+      "output": "2 Feed Testimoni",
       "status": "locked"
     },
     {
       "id": 13,
-      "title": "Desain Kaos",
+      "title": "Instagram Story Campaign",
       "meeting": 13,
       "duration": "4 JP",
+      "phase": "Social Media Content",
+      "output": "5 Story Design",
       "status": "locked"
     },
     {
       "id": 14,
-      "title": "Desain Mug",
+      "title": "Carousel Content",
       "meeting": 14,
       "duration": "4 JP",
+      "phase": "Social Media Content",
+      "output": "Carousel 5 Slide",
       "status": "locked"
     },
     {
       "id": 15,
-      "title": "Desain Pin",
+      "title": "Membuat Content Calendar",
       "meeting": 15,
       "duration": "4 JP",
+      "phase": "Campaign",
+      "output": "Kalender Konten 30 Hari",
       "status": "locked"
     },
     {
       "id": 16,
-      "title": "Produksi Merchandise",
+      "title": "Menyusun Portfolio Branding",
       "meeting": 16,
       "duration": "4 JP",
+      "phase": "Campaign",
+      "output": "Portfolio PDF",
       "status": "locked"
     },
     {
       "id": 17,
-      "title": "Katalog Produk",
+      "title": "Client Pitching",
       "meeting": 17,
       "duration": "4 JP",
+      "phase": "Campaign",
+      "output": "Pitch Deck",
       "status": "locked"
     },
     {
       "id": 18,
-      "title": "Pameran Semester 1",
+      "title": "Creative Showcase",
       "meeting": 18,
       "duration": "4 JP",
-      "status": "locked"
-    }
-  ],
-
-  "semester2": [
-    {
-      "id": 19,
-      "title": "Creative Merchandise Business",
-      "meeting": 19,
-      "duration": "4 JP",
-      "status": "locked"
-    },
-    {
-      "id": 20,
-      "title": "Riset Pasar",
-      "meeting": 20,
-      "duration": "4 JP",
-      "status": "locked"
-    },
-    {
-      "id": 21,
-      "title": "Branding Event",
-      "meeting": 21,
-      "duration": "4 JP",
-      "status": "locked"
-    },
-    {
-      "id": 22,
-      "title": "Merchandise Sekolah",
-      "meeting": 22,
-      "duration": "4 JP",
-      "status": "locked"
-    },
-    {
-      "id": 23,
-      "title": "Kaos Event",
-      "meeting": 23,
-      "duration": "4 JP",
-      "status": "locked"
-    },
-    {
-      "id": 24,
-      "title": "Mug Guru",
-      "meeting": 24,
-      "duration": "4 JP",
-      "status": "locked"
-    },
-    {
-      "id": 25,
-      "title": "Pin Organisasi",
-      "meeting": 25,
-      "duration": "4 JP",
-      "status": "locked"
-    },
-    {
-      "id": 26,
-      "title": "Proposal Produk",
-      "meeting": 26,
-      "duration": "4 JP",
-      "status": "locked"
-    },
-    {
-      "id": 27,
-      "title": "Produksi Massal",
-      "meeting": 27,
-      "duration": "4 JP",
-      "status": "locked"
-    },
-    {
-      "id": 28,
-      "title": "Packaging",
-      "meeting": 28,
-      "duration": "4 JP",
-      "status": "locked"
-    },
-    {
-      "id": 29,
-      "title": "Foto Produk",
-      "meeting": 29,
-      "duration": "4 JP",
-      "status": "locked"
-    },
-    {
-      "id": 30,
-      "title": "Video Promosi",
-      "meeting": 30,
-      "duration": "4 JP",
-      "status": "locked"
-    },
-    {
-      "id": 31,
-      "title": "Marketplace",
-      "meeting": 31,
-      "duration": "4 JP",
-      "status": "locked"
-    },
-    {
-      "id": 32,
-      "title": "Bazar Sekolah",
-      "meeting": 32,
-      "duration": "4 JP",
-      "status": "locked"
-    },
-    {
-      "id": 33,
-      "title": "Evaluasi Penjualan",
-      "meeting": 33,
-      "duration": "4 JP",
-      "status": "locked"
-    },
-    {
-      "id": 34,
-      "title": "Portofolio",
-      "meeting": 34,
-      "duration": "4 JP",
-      "status": "locked"
-    },
-    {
-      "id": 35,
-      "title": "Persiapan Expo",
-      "meeting": 35,
-      "duration": "4 JP",
-      "status": "locked"
-    },
-    {
-      "id": 36,
-      "title": "Expo DKV",
-      "meeting": 36,
-      "duration": "4 JP",
+      "phase": "Campaign",
+      "output": "Pameran Karya",
       "status": "locked"
     }
   ]
