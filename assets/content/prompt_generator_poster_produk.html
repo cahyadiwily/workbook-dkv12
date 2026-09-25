@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prompt Generator - Poster Promosi Produk</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --bg: #f3f6fb;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --border: #d8dee9;
+      --soft: #eef4ff;
+      --success: #15803d;
+      --danger: #b42318;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .header {
+      margin-bottom: 22px;
+    }
+
+    .header h1 {
+      margin: 0 0 6px;
+      font-size: clamp(26px, 4vw, 38px);
+      line-height: 1.15;
+    }
+
+    .header p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.9fr);
+      gap: 20px;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 8px 28px rgba(16, 24, 40, 0.05);
+    }
+
+    .section-title {
+      font-size: 17px;
+      font-weight: 800;
+      margin: 0 0 14px;
+    }
+
+    .section {
+      padding-bottom: 18px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid #e9edf3;
+    }
+
+    .section:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .field {
+      margin-bottom: 14px;
+    }
+
+    .field:last-child {
+      margin-bottom: 0;
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    .hint {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="url"],
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font: inherit;
+      color: var(--text);
+      background: #fff;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    textarea {
+      min-height: 92px;
+      resize: vertical;
+    }
+
+    .grid-2,
+    .grid-3 {
+      display: grid;
+      gap: 12px;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 10px;
+    }
+
+    .check {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 8px 10px;
+      border: 1px solid #e6eaf0;
+      background: #fafbfd;
+      border-radius: 9px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .check input {
+      margin-top: 3px;
+      accent-color: var(--primary);
+    }
+
+    .upload {
+      border: 2px dashed #c8d3e1;
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+      background: #fbfcfe;
+    }
+
+    .upload input {
+      width: 100%;
+    }
+
+    .preview-wrap {
+      margin-top: 12px;
+      display: none;
+    }
+
+    .preview-wrap img {
+      max-width: 100%;
+      max-height: 280px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .preview-name {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 7px;
+      word-break: break-word;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 10px;
+      padding: 11px 16px;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.15s ease;
+    }
+
+    button:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      color: white;
+      background: var(--primary);
+    }
+
+    .btn-primary:hover { background: var(--primary-dark); }
+
+    .btn-secondary {
+      color: #1f2937;
+      background: #e9eef5;
+    }
+
+    .btn-success {
+      color: white;
+      background: var(--success);
+    }
+
+    .btn-danger {
+      color: white;
+      background: var(--danger);
+    }
+
+    .sticky {
+      position: sticky;
+      top: 20px;
+    }
+
+    .prompt-box {
+      min-height: 520px;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 13px;
+      background: #0d1320;
+      color: #e9eef8;
+      border: 1px solid #242d3d;
+    }
+
+    .counter {
+      text-align: right;
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 5px;
+    }
+
+    .status {
+      min-height: 20px;
+      margin-top: 10px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .status.ok { color: var(--success); }
+    .status.err { color: var(--danger); }
+
+    .small-note {
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: var(--soft);
+      color: #25498c;
+      font-size: 12px;
+      margin-bottom: 14px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 3px 8px;
+      margin: 2px 4px 2px 0;
+      background: #eef2f7;
+      border-radius: 999px;
+      font-size: 11px;
+      color: #4b5563;
+    }
+
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+      .sticky { position: static; }
+    }
+
+    @media (max-width: 640px) {
+      .container { padding: 14px; }
+      .grid-2, .grid-3, .checkbox-grid { grid-template-columns: 1fr; }
+      .card { padding: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Prompt Generator Poster Promosi</h1>
+      <p>Isi form, pilih gaya visual, lalu hasilkan prompt siap copy-paste untuk AI image generator.</p>
+    </header>
+
+    <div class="layout">
+      <main class="card">
+        <div class="section">
+          <h2 class="section-title">A. Referensi Produk</h2>
+
+         
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="productName">Nama Produk</label>
+              <input id="productName" type="text" placeholder="Contoh: Es Teh Ambyar" />
+            </div>
+            <div class="field">
+              <label for="productType">Jenis Produk</label>
+              <select id="productType">
+                <option value="">Pilih jenis produk</option>
+                <option>Minuman</option>
+                <option>Makanan</option>
+                <option>Fashion</option>
+                <option>Skincare / Kosmetik</option>
+                <option>Elektronik</option>
+                <option>Peralatan Rumah Tangga</option>
+                <option>Jasa</option>
+                <option>Produk Digital</option>
+                <option>Produk Sekolah</option>
+                <option>Custom / lainnya</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="productDesc">Deskripsi Produk</label>
+            <textarea id="productDesc" placeholder="Contoh: minuman teh lemon dalam gelas plastik transparan dengan es batu"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="keepDetails">Bagian Produk yang Wajib Dipertahankan</label>
+            <textarea id="keepDetails" placeholder="Contoh: logo, bentuk botol, warna kemasan, label, tulisan merek, tutup botol"></textarea>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">B. Penampilan Produk</h2>
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="productPosition">Posisi Produk</label>
+              <select id="productPosition">
+                <option>Tengah</option>
+                <option>Kiri</option>
+                <option>Kanan</option>
+                <option>Foreground</option>
+                <option>Sedikit ke kiri dengan ruang teks di kanan</option>
+                <option>Sedikit ke kanan dengan ruang teks di kiri</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="displayMethod">Cara Menampilkan Produk</label>
+              <select id="displayMethod">
+                <option>Berdiri sendiri</option>
+                <option>Di atas meja</option>
+                <option>Di atas pedestal</option>
+                <option>Dipegang satu tangan</option>
+                <option>Dipegang dua tangan</option>
+                <option>Sedang digunakan</option>
+                <option>Floating / melayang</option>
+                <option>Close-up</option>
+                <option>Komposisi lifestyle</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="cameraAngle">Angle Kamera</label>
+              <select id="cameraAngle">
+                <option>Eye level</option>
+                <option>Close-up</option>
+                <option>Extreme close-up</option>
+                <option>Front view</option>
+                <option>Side view</option>
+                <option>Three-quarter view</option>
+                <option>Low angle</option>
+                <option>High angle</option>
+                <option>Top view</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="productDetail">Detail Produk</label>
+              <select id="productDetail">
+                <option>Tidak ada tambahan khusus</option>
+                <option>Embun / kondensasi</option>
+                <option>Tetesan air</option>
+                <option>Es batu</option>
+                <option>Percikan air</option>
+                <option>Uap panas</option>
+                <option>Tekstur makanan</option>
+                <option>Remah makanan</option>
+                <option>Saus</option>
+                <option>Buah segar</option>
+                <option>Daun</option>
+                <option>Biji kopi</option>
+                <option>Tekstur kain</option>
+                <option>Refleksi permukaan</option>
+                <option>Efek glossy</option>
+                <option>Efek matte</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">C. Karakter / Model</h2>
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="humanUse">Gunakan Karakter Manusia?</label>
+              <select id="humanUse">
+                <option>Tidak ada manusia</option>
+                <option>Tangan saja</option>
+                <option>Satu orang</option>
+                <option>Dua orang</option>
+                <option>Kelompok</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="modelCharacter">Karakter Model</label>
+              <select id="modelCharacter">
+                <option>Pelajar</option>
+                <option>Remaja</option>
+                <option>Mahasiswa</option>
+                <option>Pria muda</option>
+                <option>Wanita muda</option>
+                <option>Pria dewasa</option>
+                <option>Wanita dewasa</option>
+                <option>Keluarga</option>
+                <option>Atlet</option>
+                <option>Barista</option>
+                <option>Pekerja profesional</option>
+                <option>Model fashion</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="modelMood">Karakter / Pembawaan</label>
+            <select id="modelMood">
+              <option>Ceria</option>
+              <option>Santai</option>
+              <option>Ramah</option>
+              <option>Enerjik</option>
+              <option>Profesional</option>
+              <option>Elegan</option>
+              <option>Mewah</option>
+              <option>Sporty</option>
+              <option>Natural</option>
+              <option>Youthful</option>
+              <option>Playful</option>
+              <option>Percaya diri</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">D. Copywriting</h2>
+
+          <div class="field">
+            <label for="headline">Headline Utama</label>
+            <input id="headline" type="text" placeholder="Contoh: Sekali Teguk, Langsung Fresh" />
+          </div>
+
+          <div class="field">
+            <label for="tagline">Subheadline / Tagline</label>
+            <input id="tagline" type="text" placeholder="Contoh: Pelepas dahaga di setiap tegukan" />
+          </div>
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="promo">Promo / Harga</label>
+              <input id="promo" type="text" placeholder="Contoh: HARGA RP 3.000 SAJA!" />
+            </div>
+
+            <div class="field">
+              <label for="cta">Call to Action / CTA</label>
+              <select id="cta">
+                <option>Pesan Sekarang</option>
+                <option>Beli Sekarang</option>
+                <option>Order Sekarang</option>
+                <option>Coba Sekarang</option>
+                <option>Dapatkan Sekarang</option>
+                <option>Promo Hari Ini</option>
+                <option>Kunjungi Kami</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="extraInfo">Informasi Tambahan</label>
+            <textarea id="extraInfo" placeholder="Contoh: Instagram @brandkamu, WhatsApp 08..., alamat toko, marketplace"></textarea>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">E. Background & Suasana</h2>
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="background">Lokasi / Background</label>
+              <select id="background">
+                <option>Sekolah</option>
+                <option>Koridor sekolah</option>
+                <option>Coffee shop</option>
+                <option>Restoran</option>
+                <option>Dapur</option>
+                <option>Rumah</option>
+                <option>Kantor</option>
+                <option>Gym</option>
+                <option>Lapangan olahraga</option>
+                <option>Taman</option>
+                <option>Pantai</option>
+                <option>Jalan kota</option>
+                <option>Studio minimalis</option>
+                <option>Supermarket</option>
+                <option>Outdoor</option>
+                <option>Custom</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="backgroundTreatment">Treatment Background</label>
+              <select id="backgroundTreatment">
+                <option>Detail dan realistis</option>
+                <option>Sedikit blur</option>
+                <option>Bokeh</option>
+                <option>Minimalis</option>
+                <option>Dramatic</option>
+                <option>Clean</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field" id="customBackgroundField" style="display:none;">
+            <label for="customBackground">Background Custom</label>
+            <input id="customBackground" type="text" placeholder="Contoh: rooftop kota saat matahari terbenam" />
+          </div>
+
+          <div class="field">
+            <label for="mood">Mood / Suasana</label>
+            <select id="mood">
+              <option>Fresh</option>
+              <option>Ceria</option>
+              <option>Cozy</option>
+              <option>Hangat</option>
+              <option>Premium</option>
+              <option>Elegan</option>
+              <option>Enerjik</option>
+              <option>Youthful</option>
+              <option>Natural</option>
+              <option>Mewah</option>
+              <option>Modern</option>
+              <option>Playful</option>
+              <option>Cinematic</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">F. Warna</h2>
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="primaryColor">Warna Utama</label>
+              <select id="primaryColor">
+                <option>Kuning dan hijau</option>
+                <option>Merah dan putih</option>
+                <option>Biru dan putih</option>
+                <option>Cokelat dan krem</option>
+                <option>Hitam dan emas</option>
+                <option>Pink dan putih</option>
+                <option>Orange dan hitam</option>
+                <option>Ungu dan putih</option>
+                <option>Hijau sage dan beige</option>
+                <option>Custom</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="accentColor">Warna Aksen</label>
+              <select id="accentColor">
+                <option>Putih</option>
+                <option>Hitam</option>
+                <option>Emas</option>
+                <option>Silver</option>
+                <option>Cream</option>
+                <option>Lime</option>
+                <option>Orange</option>
+                <option>Merah</option>
+                <option>Custom</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field" id="customPrimaryField" style="display:none;">
+              <label for="customPrimaryColor">Warna Utama Custom</label>
+              <input id="customPrimaryColor" type="text" placeholder="Contoh: navy, putih, coral" />
+            </div>
+            <div class="field" id="customAccentField" style="display:none;">
+              <label for="customAccentColor">Warna Aksen Custom</label>
+              <input id="customAccentColor" type="text" placeholder="Contoh: gold, beige" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="colorStyle">Gaya Warna</label>
+            <select id="colorStyle">
+              <option>Cerah</option>
+              <option>Pastel</option>
+              <option>Bold</option>
+              <option>Natural</option>
+              <option>Premium</option>
+              <option>Monokrom</option>
+              <option>Kontras tinggi</option>
+              <option>Warm</option>
+              <option>Cool</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">G. Lighting</h2>
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="lighting">Jenis Lighting</label>
+              <select id="lighting">
+                <option>Golden hour hangat</option>
+                <option>Sunrise</option>
+                <option>Sunset</option>
+                <option>Natural daylight</option>
+                <option>Soft daylight</option>
+                <option>Softbox studio</option>
+                <option>Bright studio lighting</option>
+                <option>High-key</option>
+                <option>Low-key</option>
+                <option>Dramatic cinematic</option>
+                <option>Side lighting</option>
+                <option>Backlighting</option>
+                <option>Rim lighting</option>
+                <option>Neon lighting</option>
+                <option>Moody lighting</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="lightEffect">Efek Cahaya</label>
+              <select id="lightEffect">
+                <option>Shadow lembut</option>
+                <option>Shadow dramatis</option>
+                <option>Highlight produk</option>
+                <option>Rim light</option>
+                <option>Glow lembut</option>
+                <option>Refleksi realistis</option>
+                <option>Cahaya volumetric</option>
+                <option>Cahaya natural</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">H. Gaya Desain</h2>
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="designStyle">Style Poster</label>
+              <select id="designStyle">
+                <option>Modern minimalis</option>
+                <option>Premium luxury</option>
+                <option>Clean advertising</option>
+                <option>Colorful commercial</option>
+                <option>Youthful</option>
+                <option>Sporty</option>
+                <option>Playful</option>
+                <option>Elegant</option>
+                <option>Editorial</option>
+                <option>Cinematic</option>
+                <option>Street style</option>
+                <option>Retro modern</option>
+                <option>Futuristic</option>
+                <option>Natural lifestyle</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="decorations">Elemen Dekorasi</label>
+              <select id="decorations">
+                <option>Tidak ada</option>
+                <option>Daun</option>
+                <option>Buah</option>
+                <option>Es batu</option>
+                <option>Percikan</option>
+                <option>Asap / uap</option>
+                <option>Bunga</option>
+                <option>Partikel</option>
+                <option>Sparkle</option>
+                <option>Geometric shape</option>
+                <option>Garis dinamis</option>
+                <option>Pattern</option>
+                <option>Ikon kecil</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">I. Komposisi</h2>
+
+          <div class="grid-3">
+            <div class="field">
+              <label for="headlinePosition">Posisi Headline</label>
+              <select id="headlinePosition">
+                <option>Atas tengah</option>
+                <option>Kiri atas</option>
+                <option>Kanan atas</option>
+                <option>Tengah</option>
+                <option>Kiri</option>
+                <option>Kanan</option>
+                <option>Bawah</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="promoPosition">Posisi Promo</label>
+              <select id="promoPosition">
+                <option>Tengah</option>
+                <option>Kanan atas</option>
+                <option>Kiri atas</option>
+                <option>Kanan bawah</option>
+                <option>Kiri bawah</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="ctaPosition">Posisi CTA</label>
+              <select id="ctaPosition">
+                <option>Bawah tengah</option>
+                <option>Kiri bawah</option>
+                <option>Kanan bawah</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="negativeSpace">Area Negative Space untuk Teks</label>
+            <select id="negativeSpace">
+              <option>Kiri</option>
+              <option>Kanan</option>
+              <option>Atas</option>
+              <option>Bawah</option>
+              <option>Kiri dan kanan</option>
+              <option>Atas dan bawah</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">J. Output & Aturan</h2>
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="aspectRatio">Rasio Desain</label>
+              <select id="aspectRatio">
+                <option>4:5 — Instagram Feed</option>
+                <option>1:1 — Square</option>
+                <option>9:16 — Story / Reels</option>
+                <option>16:9 — Banner / YouTube</option>
+                <option>3:4 — Poster</option>
+                <option>Custom</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="quality">Kualitas Visual</label>
+              <select id="quality">
+                <option>Photorealistic</option>
+                <option>Ultra photorealistic</option>
+                <option>Commercial photography</option>
+                <option>Premium advertising</option>
+                <option>Cinematic</option>
+                <option>High detail</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field" id="customRatioField" style="display:none;">
+            <label for="customRatio">Rasio Custom</label>
+            <input id="customRatio" type="text" placeholder="Contoh: 2:3" />
+          </div>
+
+          <label>Aturan Wajib Produk</label>
+          <div class="checkbox-grid">
+            <label class="check"><input type="checkbox" class="rule" value="pertahankan bentuk asli produk"> Pertahankan bentuk asli</label>
+            <label class="check"><input type="checkbox" class="rule" value="pertahankan logo produk"> Pertahankan logo</label>
+            <label class="check"><input type="checkbox" class="rule" value="pertahankan warna asli produk"> Pertahankan warna asli</label>
+            <label class="check"><input type="checkbox" class="rule" value="pertahankan label dan tulisan"> Pertahankan label/tulisan</label>
+            <label class="check"><input type="checkbox" class="rule" value="pertahankan proporsi produk"> Pertahankan proporsi</label>
+            <label class="check"><input type="checkbox" class="rule" value="jangan mengubah desain kemasan"> Jangan ubah kemasan</label>
+            <label class="check"><input type="checkbox" class="rule" value="jangan mengganti produk dengan produk lain" checked> Jangan ganti produk</label>
+            <label class="check"><input type="checkbox" class="rule" value="produk harus menjadi fokus utama" checked> Produk sebagai fokus utama</label>
+          </div>
+
+          <div class="field" style="margin-top:14px;">
+            <label for="extraRules">Aturan Tambahan</label>
+            <textarea id="extraRules" placeholder="Contoh: background tidak boleh mengalahkan produk, jangan terlalu banyak dekorasi, sisakan ruang untuk teks"></textarea>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button type="button" class="btn-primary" id="generateBtn">Generate Prompt</button>
+          <button type="button" class="btn-secondary" id="sampleBtn">Isi Contoh</button>
+          <button type="button" class="btn-danger" id="resetBtn">Reset</button>
+        </div>
+        <div id="formStatus" class="status"></div>
+      </main>
+
+      <aside class="card sticky">
+        <h2 class="section-title">Prompt Siap Copy-Paste</h2>
+
+        <div class="small-note">
+          Prompt di bawah akan otomatis dibuat berdasarkan isian form. Foto produk tidak dimasukkan ke dalam teks; foto tetap menjadi referensi yang Anda lampirkan pada AI image generator.
+        </div>
+
+        <textarea id="promptOutput" class="prompt-box" placeholder="Prompt akan muncul di sini..." spellcheck="false"></textarea>
+
+        <div id="counter" class="counter">0 karakter</div>
+
+        <div class="buttons">
+          <button type="button" class="btn-success" id="copyBtn">Salin Prompt</button>
+        </div>
+        <div id="copyStatus" class="status"></div>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+
+    function val(id, fallback = "") {
+      return ($(id)?.value || fallback).trim();
+    }
+
+    function getCustomOrSelect(selectId, customInputId, customOption = "Custom") {
+      const selected = val(selectId);
+      return selected === customOption ? val(customInputId, "custom") : selected;
+    }
+
+    function getRules() {
+      return [...document.querySelectorAll(".rule:checked")].map(cb => cb.value);
+    }
+
+    function generatePrompt() {
+      const productName = val("productName", "[NAMA PRODUK]");
+      const productType = val("productType", "[JENIS PRODUK]");
+      const productDesc = val("productDesc", "[DESKRIPSI PRODUK]");
+      const keepDetails = val("keepDetails", "[DETAIL PRODUK YANG WAJIB DIPERTAHANKAN]");
+      const position = val("productPosition");
+      const displayMethod = val("displayMethod");
+      const angle = val("cameraAngle");
+      const productDetail = val("productDetail");
+      const humanUse = val("humanUse");
+      const modelCharacter = val("modelCharacter");
+      const modelMood = val("modelMood");
+      const headline = val("headline", "[HEADLINE UTAMA]");
+      const tagline = val("tagline", "[TAGLINE]");
+      const promo = val("promo", "[PROMO / HARGA]");
+      const cta = val("cta");
+      const extraInfo = val("extraInfo", "");
+      let background = val("background");
+      if (background === "Custom") {
+        background = val("customBackground", "[BACKGROUND CUSTOM]");
+      }
+      const backgroundTreatment = val("backgroundTreatment");
+      const mood = val("mood");
+      const primaryColor = getCustomOrSelect("primaryColor", "customPrimaryColor");
+      const accentColor = getCustomOrSelect("accentColor", "customAccentColor");
+      const colorStyle = val("colorStyle");
+      const lighting = val("lighting");
+      const lightEffect = val("lightEffect");
+      const designStyle = val("designStyle");
+      const decorations = val("decorations");
+      const headlinePosition = val("headlinePosition");
+      const promoPosition = val("promoPosition");
+      const ctaPosition = val("ctaPosition");
+      const negativeSpace = val("negativeSpace");
+      let ratio = val("aspectRatio");
+      if (ratio === "Custom") {
+        ratio = val("customRatio", "[RASIO CUSTOM]");
+      }
+      const quality = val("quality");
+      const extraRules = val("extraRules", "");
+      const rules = getRules();
+
+      const extraInfoSentence = extraInfo
+        ? `Tambahkan informasi tambahan "${extraInfo}".`
+        : `Tambahkan informasi tambahan hanya jika relevan dengan kebutuhan promosi.`;
+
+      const humanSentence = humanUse === "Tidak ada manusia"
+        ? `Tidak perlu menampilkan karakter manusia.`
+        : `Gunakan ${humanUse.toLowerCase()} dengan karakter ${modelCharacter.toLowerCase()} dan pembawaan ${modelMood.toLowerCase()}, dengan pose natural yang mendukung produk dan tidak mengalahkan fokus utama.`;
+
+      const decorationSentence = decorations === "Tidak ada"
+        ? `Jangan menambahkan dekorasi yang tidak diperlukan.`
+        : `Tambahkan elemen dekoratif berupa ${decorations.toLowerCase()} secara natural dan secukupnya.`;
+
+      const rulesSentence = rules.length
+        ? `Aturan wajib: ${rules.join("; ")}.`
+        : `Aturan wajib: gunakan foto produk sebagai referensi utama dan jangan mengubah identitas produk.`;
+
+      const extraRulesSentence = extraRules
+        ? `Aturan tambahan: ${extraRules}.`
+        : ``;
+
+      const prompt = `Buat sebuah poster promosi produk ${designStyle.toLowerCase()} yang ${quality.toLowerCase()}, profesional, menarik, dan memiliki kualitas seperti iklan komersial premium untuk produk "${productName}".
+
+Gunakan foto produk yang dilampirkan pengguna sebagai referensi utama dan sumber identitas visual produk. Produk tersebut adalah ${productType.toLowerCase()}, dengan deskripsi: ${productDesc}. Pertahankan ${keepDetails}.
+
+Tampilkan produk sebagai hero focus utama pada posisi ${position.toLowerCase()}, dengan cara ${displayMethod.toLowerCase()} dan angle kamera ${angle.toLowerCase()}. Produk harus terlihat jelas, tajam, realistis, proporsional, dan memiliki detail material yang meyakinkan.
+
+Tambahkan detail visual ${productDetail.toLowerCase()} yang sesuai dengan produk. Semua detail tambahan harus natural dan tidak menutupi bagian penting produk.
+
+${humanSentence}
+
+Tambahkan headline utama "${headline}" menggunakan tipografi ${designStyle.toLowerCase()} yang tegas, mudah dibaca, memiliki kontras tinggi, dan ditempatkan di ${headlinePosition.toLowerCase()}.
+
+Tambahkan subheadline/tagline "${tagline}".
+
+Tampilkan informasi promosi "${promo}" dalam bentuk badge atau elemen highlight yang menarik, ditempatkan di ${promoPosition.toLowerCase()}.
+
+Tambahkan CTA "${cta}" pada ${ctaPosition.toLowerCase()}.
+
+${extraInfoSentence}
+
+Gunakan background ${background.toLowerCase()} dengan treatment ${backgroundTreatment.toLowerCase()}. Background harus memberikan konteks visual yang sesuai namun tidak lebih dominan daripada produk. Gunakan depth of field yang realistis sehingga produk tetap menjadi fokus utama.
+
+Gunakan suasana ${mood.toLowerCase()}.
+
+Gunakan palet warna utama ${primaryColor.toLowerCase()} dengan aksen ${accentColor.toLowerCase()}, gaya warna ${colorStyle.toLowerCase()}, dan tetap selaras dengan identitas brand serta warna asli produk.
+
+Gunakan lighting ${lighting.toLowerCase()} dengan efek ${lightEffect.toLowerCase()}. Hasil pencahayaan harus menghasilkan highlight, shadow, refleksi, dan volume yang realistis pada produk.
+
+${decorationSentence}
+
+Gunakan komposisi dengan hierarki visual yang jelas: produk sebagai fokus utama, headline sebagai fokus kedua, promo sebagai fokus ketiga, lalu tagline dan CTA sebagai informasi pendukung. Sediakan negative space pada area ${negativeSpace.toLowerCase()} agar teks tetap mudah dibaca dan tidak menutupi produk.
+
+Hasil akhir harus terlihat seperti commercial product photography dan premium advertising poster, dengan realistic product texture, realistic material, natural shadow, realistic reflection, sharp focus, cinematic depth, professional retouching, balanced composition, strong visual hierarchy, high detail, dan ${quality.toLowerCase()}.
+
+Gunakan rasio ${ratio}.
+
+${rulesSentence}
+${extraRulesSentence}
+
+Jangan membuat produk menjadi versi lain, jangan mengganti logo atau desain kemasan, jangan mendistorsi proporsi, jangan menambahkan objek yang tidak relevan, dan jangan membuat background lebih dominan daripada produk. Foto produk terlampir harus tetap menjadi referensi utama dan identitas produknya harus dipertahankan semaksimal mungkin.`;
+
+      $("promptOutput").value = prompt;
+      updateCounter();
+      $("formStatus").textContent = "Prompt berhasil dibuat.";
+      $("formStatus").className = "status ok";
+      $("copyStatus").textContent = "";
+    }
+
+    function updateCounter() {
+      const length = $("promptOutput").value.length;
+      $("counter").textContent = `${length.toLocaleString("id-ID")} karakter`;
+    }
+
+    async function copyPrompt() {
+      const prompt = $("promptOutput").value.trim();
+      if (!prompt) {
+        $("copyStatus").textContent = "Generate prompt terlebih dahulu.";
+        $("copyStatus").className = "status err";
+        return;
+      }
+
+      try {
+        await navigator.clipboard.writeText(prompt);
+        $("copyStatus").textContent = "Prompt berhasil disalin ke clipboard.";
+        $("copyStatus").className = "status ok";
+      } catch (err) {
+        $("promptOutput").select();
+        document.execCommand("copy");
+        $("copyStatus").textContent = "Prompt disalin.";
+        $("copyStatus").className = "status ok";
+      }
+    }
+
+    function resetForm() {
+      document.querySelectorAll("input[type='text'], input[type='number'], input[type='url'], textarea").forEach(el => {
+        if (el.id !== "promptOutput") el.value = "";
+      });
+
+      document.querySelectorAll("select").forEach((select) => {
+        select.selectedIndex = 0;
+      });
+
+      document.querySelectorAll(".rule").forEach(cb => cb.checked = false);
+      document.querySelector('.rule[value="jangan mengganti produk dengan produk lain"]').checked = true;
+      document.querySelector('.rule[value="produk harus menjadi fokus utama"]').checked = true;
+
+    
+      $("previewWrap").style.display = "none";
+      $("previewImage").removeAttribute("src");
+      $("previewName").textContent = "";
+      $("promptOutput").value = "";
+      $("customBackgroundField").style.display = "none";
+      $("customPrimaryField").style.display = "none";
+      $("customAccentField").style.display = "none";
+      $("customRatioField").style.display = "none";
+      $("formStatus").textContent = "";
+      $("copyStatus").textContent = "";
+      updateCounter();
+    }
+
+    function fillSample() {
+      $("productName").value = "Es Teh Ambyar";
+      $("productType").value = "Minuman";
+      $("productDesc").value = "minuman teh lemon dalam gelas plastik transparan, penuh es batu, irisan lemon segar, dan daun mint";
+      $("keepDetails").value = "logo, tulisan merek, bentuk gelas, label, warna minuman, dan proporsi kemasan";
+      $("productPosition").value = "Sedikit ke kanan dengan ruang teks di kiri";
+      $("displayMethod").value = "Dipegang satu tangan";
+      $("cameraAngle").value = "Three-quarter view";
+      $("productDetail").value = "Embun / kondensasi";
+      $("humanUse").value = "Tangan saja";
+      $("modelCharacter").value = "Pelajar";
+      $("modelMood").value = "Ceria";
+      $("headline").value = "Es Teh Ambyar";
+      $("tagline").value = "Sekali Teguk, Langsung Fresh";
+      $("promo").value = "HARGA RP 3.000 SAJA!";
+      $("cta").value = "Pesan Sekarang";
+      $("extraInfo").value = "Instagram @estehambyar, tersedia untuk pemesanan online";
+      $("background").value = "Koridor sekolah";
+      $("backgroundTreatment").value = "Detail dan realistis";
+      $("mood").value = "Fresh";
+      $("primaryColor").value = "Kuning dan hijau";
+      $("accentColor").value = "Putih";
+      $("colorStyle").value = "Cerah";
+      $("lighting").value = "Golden hour hangat";
+      $("lightEffect").value = "Highlight produk";
+      $("designStyle").value = "Colorful commercial";
+      $("decorations").value = "Daun";
+      $("headlinePosition").value = "Kiri atas";
+      $("promoPosition").value = "Kanan atas";
+      $("ctaPosition").value = "Bawah tengah";
+      $("negativeSpace").value = "Kiri";
+      $("aspectRatio").value = "4:5 — Instagram Feed";
+      $("quality").value = "Ultra photorealistic";
+      $("extraRules").value = "produk harus menjadi fokus utama, jangan terlalu banyak dekorasi, background tidak boleh mengalahkan produk, sisakan ruang untuk teks";
+
+      document.querySelectorAll(".rule").forEach(cb => cb.checked = false);
+      const wantedRules = [
+        "pertahankan bentuk asli produk",
+        "pertahankan logo produk",
+        "pertahankan warna asli produk",
+        "pertahankan label dan tulisan",
+        "pertahankan proporsi produk",
+        "jangan mengubah desain kemasan",
+        "jangan mengganti produk dengan produk lain",
+        "produk harus menjadi fokus utama"
+      ];
+      document.querySelectorAll(".rule").forEach(cb => {
+        if (wantedRules.includes(cb.value)) cb.checked = true;
+      });
+
+      toggleCustomFields();
+      generatePrompt();
+    }
+
+    function toggleCustomFields() {
+      $("customBackgroundField").style.display = $("background").value === "Custom" ? "block" : "none";
+      $("customPrimaryField").style.display = $("primaryColor").value === "Custom" ? "block" : "none";
+      $("customAccentField").style.display = $("accentColor").value === "Custom" ? "block" : "none";
+      $("customRatioField").style.display = $("aspectRatio").value === "Custom" ? "block" : "none";
+    }
+
+   
+
+    ["background", "primaryColor", "accentColor", "aspectRatio"].forEach(id => {
+      $(id).addEventListener("change", toggleCustomFields);
+    });
+
+    $("generateBtn").addEventListener("click", generatePrompt);
+    $("sampleBtn").addEventListener("click", fillSample);
+    $("resetBtn").addEventListener("click", resetForm);
+    $("copyBtn").addEventListener("click", copyPrompt);
+    $("promptOutput").addEventListener("input", updateCounter);
+
+    toggleCustomFields();
+    updateCounter();
+  </script>
+</body>
+</html>
